@@ -1,6 +1,7 @@
 package com.gmail2548sov.myeventsolehsuprun;
 
 import android.content.Context;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,12 +11,16 @@ public class EventSingleton {
 
     private static EventSingleton sEvenSingleton;
     private List<Event> mEvents;
+    private final static String LOG_= "UUID";
+
 
     private EventSingleton(Context context) {
         mEvents = new ArrayList<>();
         for (int i = 0; i<50; i++) {
             Event event = new Event();
             event.setmTitle("Event " + (i+1));
+            event.setmCompleted(true);
+            Log.d (LOG_, event.getmTitle());
             mEvents.add(event);
         }
     }

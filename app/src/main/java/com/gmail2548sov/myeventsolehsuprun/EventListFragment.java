@@ -1,5 +1,6 @@
 package com.gmail2548sov.myeventsolehsuprun;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,6 +20,19 @@ public class EventListFragment extends Fragment {
     private RecyclerView mCrimeRecyclerView;
     private CrimeAdapter mAdapter;
     private final static String LOG_1= "ELF";
+    private Callbacks mCallbacks;
+
+    public interface Callbacks {
+        void onEventSelected(Event event);}
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mCallbacks = (Callbacks) context;
+    }
+
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -36,6 +50,12 @@ public class EventListFragment extends Fragment {
     public void onResume() {
         super.onResume();
         updateUI();
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mCallbacks = null;
     }
 
 
@@ -104,11 +124,13 @@ public class EventListFragment extends Fragment {
 
         @Override
         public void onClick(View v) {
-            Intent intent = EventPagerActivity.newIntent(getActivity(), mEvent.getmId());
+            //Intent intent = EventPagerActivity.newIntent(getActivity(), mEvent.getmId());
             //Intent intent = EventActivity.newIntent(getActivity(), mEvent.getmId());
            // Intent intent = new Intent(getActivity(),EventActivity.class);
-            Log.d (LOG_1, "IntentStart from EventListFragment");
-            startActivity(intent);
+           // Log.d (LOG_1, "IntentStart from EventListFragment");
+           // startActivity(intent);
+
+            mCallbacks.onEventSelected(mEvent);
         }
     }
 

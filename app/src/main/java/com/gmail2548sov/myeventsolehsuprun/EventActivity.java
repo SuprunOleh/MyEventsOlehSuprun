@@ -28,7 +28,8 @@ public class EventActivity extends SingleFragmentActivity {
 
     @Override
     protected Fragment createFragment() {
-        return new EventFragment();
+        UUID crimeId = (UUID) getIntent().getSerializableExtra(EXTRA_EVENT_ID);
+        return EventFragment.newInstance(crimeId);
     }
 
 

@@ -32,11 +32,25 @@ public class EventListFragment extends Fragment {
         return view;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        updateUI();
+    }
+
+
     private void updateUI() {
         EventSingleton mEventSing = EventSingleton.get(getActivity());
         List<Event> crimes = mEventSing.getEvents();
+
+
+       if (mAdapter == null) {
+
+
+
         mAdapter = new CrimeAdapter(crimes);
-        mCrimeRecyclerView.setAdapter(mAdapter);
+        mCrimeRecyclerView.setAdapter(mAdapter);}
+       else{mAdapter.notifyDataSetChanged();    }
     }
 
     private class CrimeAdapter extends RecyclerView.Adapter<EventHolder> {
@@ -90,7 +104,8 @@ public class EventListFragment extends Fragment {
 
         @Override
         public void onClick(View v) {
-            Intent intent = EventActivity.newIntent(getActivity(), mEvent.getmId());
+            Intent intent = EventPagerActivity.newIntent(getActivity(), mEvent.getmId());
+            //Intent intent = EventActivity.newIntent(getActivity(), mEvent.getmId());
            // Intent intent = new Intent(getActivity(),EventActivity.class);
             Log.d (LOG_1, "IntentStart from EventListFragment");
             startActivity(intent);

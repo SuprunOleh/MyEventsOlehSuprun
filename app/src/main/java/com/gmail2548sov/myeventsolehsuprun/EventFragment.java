@@ -22,6 +22,8 @@ import java.util.UUID;
 
 public class    EventFragment extends Fragment {
 
+    private static final String ARG_EVENT_ID = "event_id";
+
     private EditText mTitleField;
     private Button mButton;
     private CheckBox mCheck;
@@ -33,13 +35,27 @@ public class    EventFragment extends Fragment {
 
     private static final String LOG_xxx = "xxx";
 
+    public static EventFragment newInstance(UUID crimeId) {
+        Bundle args = new Bundle();
+        args.putSerializable(ARG_EVENT_ID, crimeId);
+       EventFragment fragment = new EventFragment();
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+
+
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
 
-        eventId = (UUID)getActivity().getIntent().getSerializableExtra(EventActivity.EXTRA_EVENT_ID);
+        //eventId = (UUID)getActivity().getIntent().getSerializableExtra(EventActivity.EXTRA_EVENT_ID);
+
+        UUID eventId = (UUID) getArguments().getSerializable(ARG_EVENT_ID);
+
         mEvent = EventSingleton.get(getActivity()).getEvent(eventId);
 
         Log.d (LOG_xxx,mEvent.toString());
@@ -79,6 +95,8 @@ public class    EventFragment extends Fragment {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 mEventTitle.setText(s.toString());
+                mEvent.setmTitle(s.toString());
+
 
             }
 

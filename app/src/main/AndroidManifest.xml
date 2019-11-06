@@ -16,7 +16,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".EventActivity">
+        <activity android:name=".EventPagerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.EventActivity" />
 

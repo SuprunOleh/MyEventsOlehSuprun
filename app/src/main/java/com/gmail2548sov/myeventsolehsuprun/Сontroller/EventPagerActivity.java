@@ -1,4 +1,4 @@
-package com.gmail2548sov.myeventsolehsuprun;
+package com.gmail2548sov.myeventsolehsuprun.Сontroller;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +10,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
+
+import com.gmail2548sov.myeventsolehsuprun.Model.Event;
+import com.gmail2548sov.myeventsolehsuprun.Model.EventSingleton;
+import com.gmail2548sov.myeventsolehsuprun.R;
 
 import java.util.List;
 import java.util.UUID;

@@ -1,8 +1,11 @@
-package com.gmail2548sov.myeventsolehsuprun;
+package com.gmail2548sov.myeventsolehsuprun.Сontroller;
 
 import android.content.Intent;
 
 import androidx.fragment.app.Fragment;
+
+import com.gmail2548sov.myeventsolehsuprun.Model.Event;
+import com.gmail2548sov.myeventsolehsuprun.R;
 
 public class EventListActivity extends SingleFragmentActivity implements EventListFragment.Callbacks{
 

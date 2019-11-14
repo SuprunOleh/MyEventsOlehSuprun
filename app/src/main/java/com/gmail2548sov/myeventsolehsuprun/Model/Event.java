@@ -1,4 +1,4 @@
-package com.gmail2548sov.myeventsolehsuprun;
+package com.gmail2548sov.myeventsolehsuprun.Model;
 
 import java.util.Date;
 import java.util.UUID;

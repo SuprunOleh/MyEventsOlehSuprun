@@ -1,4 +1,4 @@
-package com.gmail2548sov.myeventsolehsuprun;
+package com.gmail2548sov.myeventsolehsuprun.Model;
 
 import android.content.Context;
 import android.util.Log;
@@ -10,6 +10,7 @@ import java.util.UUID;
 public class EventSingleton {
 
     private static EventSingleton sEvenSingleton;
+    private static int namber = 0;
     private List<Event> mEvents;
     private final static String LOG_= "UUID";
 
@@ -23,6 +24,15 @@ public class EventSingleton {
             Log.d (LOG_, event.getmTitle());
             mEvents.add(event);
         }
+    }
+
+    public static int getNamber(){
+
+        return namber;
+    }
+
+    public static void setNamber(){
+        namber++;
     }
 
 
@@ -42,7 +52,6 @@ public class EventSingleton {
         }
             return null;
     }
-
 
 
 

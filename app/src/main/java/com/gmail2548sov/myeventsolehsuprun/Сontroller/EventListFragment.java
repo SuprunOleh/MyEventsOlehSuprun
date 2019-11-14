@@ -1,9 +1,7 @@
-package com.gmail2548sov.myeventsolehsuprun;
+package com.gmail2548sov.myeventsolehsuprun.Сontroller;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +10,10 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.gmail2548sov.myeventsolehsuprun.Model.Event;
+import com.gmail2548sov.myeventsolehsuprun.Model.EventSingleton;
+import com.gmail2548sov.myeventsolehsuprun.R;
 
 import java.util.List;
 
@@ -30,6 +32,20 @@ public class EventListFragment extends Fragment {
         super.onAttach(context);
         mCallbacks = (Callbacks) context;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -131,8 +147,21 @@ public class EventListFragment extends Fragment {
            // startActivity(intent);
 
             mCallbacks.onEventSelected(mEvent);
+
+
+
+
+
+
         }
     }
 
 
-}
+
+
+
+
+    }
+
+
+
